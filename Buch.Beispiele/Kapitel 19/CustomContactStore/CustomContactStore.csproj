@@ -184,7 +184,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\9.Kapitel\Aktienkurse\Phone.Helpers\Phone.Helpers.csproj">
+    <ProjectReference Include="..\..\Kapitel 62\Aktienverwaltung\Phone.Helpers\Phone.Helpers.csproj">
       <Project>{F8D40B85-AB31-4668-8569-FF1A79B8EDFF}</Project>
       <Name>Phone.Helpers</Name>
     </ProjectReference>
