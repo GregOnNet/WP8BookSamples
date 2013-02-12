@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Aktienkurse.Controls.AktieQuickInfoControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converter="clr-namespace:Aktienkurse.Controls.Converters" mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="88" d:DesignWidth="325" HorizontalAlignment="Left">
+    <UserControl.Resources>
+        <converter:ValueToFontColor x:Key="FontColorConverter"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="VisualStateGroup"/>
+    	</VisualStateManager.VisualStateGroups>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.8*"/>
+    		<ColumnDefinition Width="0.2*"/>
+    		<ColumnDefinition Width="0.2*"/>
+    	</Grid.ColumnDefinitions>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="Auto" MinHeight="56"/>
+    		<RowDefinition Height="Auto" MinHeight="32"/>
+    	</Grid.RowDefinitions>
+    	<TextBlock
+            x:Name="Symbol_Text" Margin="0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Style="{StaticResource PhoneTextSmallStyle}"/>
+    	<TextBlock 
+            x:Name="Titel_Text" Margin="0" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+    	<TextBlock          
+            Foreground="{Binding Converter={StaticResource FontColorConverter}, TargetNullValue={StaticResource PhoneForegroundBrush}, Path=Text, RelativeSource={RelativeSource Self}}"
+            x:Name="Prozent_Text" Grid.Column="1" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    	<TextBlock 
+            Foreground="{Binding Converter={StaticResource FontColorConverter}, TargetNullValue={StaticResource PhoneForegroundBrush}, Path=Text, RelativeSource={RelativeSource Self}}"
+            x:Name="Nominal_Text" Grid.Column="2" Margin="5,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" d:LayoutOverrides="GridBox" HorizontalAlignment="Center"/>
+
+    </Grid>
+</UserControl>

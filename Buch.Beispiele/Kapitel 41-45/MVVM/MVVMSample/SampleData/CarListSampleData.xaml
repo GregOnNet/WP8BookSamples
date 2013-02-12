@@ -1,0 +1,25 @@
+﻿<vm:CarForListCollectionViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:MVVMSample.ViewModels;assembly=MVVMSample">
+    <vm:CarForListViewModel
+        Producer="VW"
+        Name="Golf 5 Variant"
+        YearOfManufacture="2007"
+        HasDetails="False"/>
+    <vm:CarForListViewModel
+        Producer="Audi"
+        Name="S5 Coupe"
+        YearOfManufacture="2007"
+        HasDetails="True"/>
+    <vm:CarForListViewModel
+        Producer="Skoda"
+        Name="Fabia Kombi"
+        YearOfManufacture="2010"
+        HasDetails="False"/>
+    <vm:CarForListViewModel
+        Producer="VEB Sachsenring Automobilwerke Zwickau"
+        Name="Trabant"
+        YearOfManufacture="1973"
+        HasDetails="True"/>
+</vm:CarForListCollectionViewModel>

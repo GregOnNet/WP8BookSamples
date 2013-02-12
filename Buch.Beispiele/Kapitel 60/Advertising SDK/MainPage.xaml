@@ -1,0 +1,41 @@
+﻿<phone:PhoneApplicationPage 
+  x:Class="AdvertisingSDK.MainPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+  xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:my="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"  
+  mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+  FontFamily="{StaticResource PhoneFontFamilyNormal}"
+  FontSize="{StaticResource PhoneFontSizeNormal}"
+  Foreground="{StaticResource PhoneForegroundBrush}"
+  SupportedOrientations="Portrait" Orientation="Portrait"
+  shell:SystemTray.IsVisible="True" >
+
+  <!--LayoutRoot ist das Stammraster, in dem alle anderen Seiteninhalte platziert werden-->
+  <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <!--TitlePanel enthält den Namen der Anwendung und den Seitentitel-->
+    <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+      <TextBlock x:Name="ApplicationTitle" Text="ADVERTISING" Style="{StaticResource PhoneTextNormalStyle}"/>
+      <TextBlock x:Name="PageTitle" Text="Konsum für Sie" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+    </StackPanel>
+
+    <!--ContentPanel - zusätzliche Inhalte hier platzieren-->
+    <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+      <my:AdControl 
+                Name="AdForTheApp"
+                AdUnitId="Image480_80" 
+                ApplicationId="test_client" 
+                Width="480" 
+                Height="80"
+                VerticalAlignment="Bottom" />
+    </Grid>
+  </Grid>
+</phone:PhoneApplicationPage>

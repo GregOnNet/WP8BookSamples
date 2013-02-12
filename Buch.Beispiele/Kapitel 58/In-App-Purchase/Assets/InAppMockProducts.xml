@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ProductListings>
+    <ProductListing Key="test.BrightnessFilter" Purchased="false" Fulfilled="false">
+        <Name>Helligkeit</Name>
+        <Description>Ändere die Bildhelligkeit</Description>
+        <ProductId>BrightnessFilter</ProductId>
+        <ProductType>Durable</ProductType>
+        <FormattedPrice>0,99 €</FormattedPrice>
+        <ImageUri></ImageUri>
+        <Keywords></Keywords>
+        <Tag></Tag>
+    </ProductListing>
+    <ProductListing Key="test.ContrastFilter" Purchased="false" Fulfilled="false">
+        <Name>Kontrast</Name>
+        <Description>Ändere den Bildkontrast</Description>
+        <ProductId>ContrastFilter</ProductId>
+        <ProductType>Durable</ProductType>
+        <FormattedPrice>0,99 €</FormattedPrice>
+        <ImageUri></ImageUri>
+        <Keywords></Keywords>
+        <Tag></Tag>
+    </ProductListing>
+</ProductListings>

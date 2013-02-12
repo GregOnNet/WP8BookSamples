@@ -1,0 +1,85 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:MVVMSample.ViewModels;assembly=MVVMSample"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cimbalino="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
+    x:Class="MVVMSample.Views.CarDetailsView"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+  <phone:PhoneApplicationPage.DataContext>
+    <vm:CarDetailsViewModel/>
+  </phone:PhoneApplicationPage.DataContext>
+  <phone:PhoneApplicationPage.FontFamily>
+    <StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+  </phone:PhoneApplicationPage.FontFamily>
+  <phone:PhoneApplicationPage.FontSize>
+    <StaticResource ResourceKey="PhoneFontSizeNormal"/>
+  </phone:PhoneApplicationPage.FontSize>
+  <phone:PhoneApplicationPage.Foreground>
+    <StaticResource ResourceKey="PhoneForegroundBrush"/>
+  </phone:PhoneApplicationPage.Foreground>
+
+
+  <!--LayoutRoot ist das Stammraster, in dem alle anderen Seiteninhalte platziert werden-->
+  <Grid x:Name="LayoutRoot"
+          Background="Transparent">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <!-- Application Bar -->
+    <i:Interaction.Behaviors>
+      <cimbalino:ApplicationBarBehavior>
+        <cimbalino:ApplicationBarIconButton
+             IconUri="/Images/appbar.save.rest.png"
+             Text="speichern"
+             Command="{Binding SaveCommand}"/>
+      </cimbalino:ApplicationBarBehavior>
+    </i:Interaction.Behaviors>
+
+    <!--TitlePanel enthält den Namen der Anwendung und den Seitentitel-->
+    <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+      <TextBlock x:Name="ApplicationTitle" Text="{StaticResource ApplicationName}" Style="{StaticResource PhoneTextNormalStyle}"/>
+      <TextBlock x:Name="PageTitle" Text="Details" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+    </StackPanel>
+
+    <!--ContentPanel - zusätzliche Inhalte hier platzieren-->
+    <Grid x:Name="ContentPanel"
+              Grid.Row="1"
+              Margin="12,0,12,0"
+              d:DataContext="{d:DesignData /SampleData/CarDetailsSampleData.xaml}"
+              >
+
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="0.129*"/>
+        <RowDefinition Height="0.125*"/>
+        <RowDefinition Height="0.124*"/>
+        <RowDefinition Height="0.105*"/>
+        <RowDefinition Height="0.094*"/>
+        <RowDefinition Height="0.423*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="0.4*"/>
+        <ColumnDefinition Width="0.6*"/>
+      </Grid.ColumnDefinitions>
+      <TextBlock x:Name="CarName" Grid.Column="1" Margin="8,0,0,0" TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center" Text="{Binding Name}"/>
+      <TextBlock x:Name="CarNameLabel" Margin="8,0,0,0" TextWrapping="Wrap" Text="Name" HorizontalAlignment="Left" Style="{StaticResource PhoneTextAccentStyle}" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+      <TextBlock x:Name="Producer" Grid.Column="1" Margin="8,0,0,0" TextWrapping="Wrap" Text="{Binding Producer}" Grid.Row="1" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+      <TextBlock x:Name="ProducerLabel" Margin="8,0,0,0" TextWrapping="Wrap" Text="Hersteller" HorizontalAlignment="Left" Style="{StaticResource PhoneTextAccentStyle}" Grid.Row="1" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+      <TextBlock x:Name="YearOfManufactur" Grid.Column="1" Margin="8,0,0,0" TextWrapping="Wrap" Text="{Binding YearOfManufacture}" Grid.Row="2" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+      <TextBlock x:Name="YearOfManufacturLabel" Margin="8,0,0,0" TextWrapping="Wrap" Text="Baujahr" HorizontalAlignment="Left" Style="{StaticResource PhoneTextAccentStyle}" Grid.Row="2" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+      <TextBlock x:Name="Ps" Grid.Column="1" Margin="8,0,0,0" TextWrapping="Wrap" Text="{Binding Ps}" Grid.Row="3" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+      <TextBlock x:Name="PsLabel" Margin="8,0,0,0" TextWrapping="Wrap" Text="Ps" HorizontalAlignment="Left" Style="{StaticResource PhoneTextAccentStyle}" Grid.Row="3" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+      <TextBlock x:Name="MaxKmH" Grid.Column="1" Margin="8,0,0,0" TextWrapping="Wrap" Text="{Binding MaxKmH}" Grid.Row="4" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+      <TextBlock x:Name="MaxKmHLAbel" Margin="8,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Style="{StaticResource PhoneTextAccentStyle}" Grid.Row="4" d:LayoutOverrides="Height" VerticalAlignment="Center"><Run Text="max. G"/><Run Text="eschwindigkeit"/></TextBlock>
+    </Grid>
+  </Grid>
+
+</phone:PhoneApplicationPage>

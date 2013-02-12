@@ -1,0 +1,40 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="BlackWhiteImageStyler.CameraSettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cust="clr-namespace:BlackWhiteImageStyler.Controls"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d" shell:SystemTray.IsVisible="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <phone:Pivot Title="EINSTELLUNGEN" Grid.Row="1" Margin="12,0">
+            <phone:PivotItem Header="Bildstil">
+                <cust:ArrayParameterOptions x:Name="SceneOptions"/>
+            </phone:PivotItem>
+            <phone:PivotItem Header="Auflösung">
+                <cust:ArrayParameterOptions x:Name="CaptureResolution"/>
+            </phone:PivotItem>
+            <phone:PivotItem Header="ISO">
+                <cust:ArrayParameterOptions x:Name="IsoOptions"/>
+            </phone:PivotItem>
+            <phone:PivotItem Header="Zeit">
+                <cust:ArrayParameterOptions x:Name="ExposureTimeOptions"/>
+            </phone:PivotItem>
+            <phone:PivotItem Header="Belichtungskorrektur">
+                <cust:RangeParameterOptions x:Name="ExposureCompensation"/>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+</phone:PhoneApplicationPage>

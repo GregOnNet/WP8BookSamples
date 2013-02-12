@@ -1,0 +1,13 @@
+﻿<vm:CarDetailsViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:MVVMSample.ViewModels;assembly=MVVMSample"
+    
+    Producer="VEB Sachsenring Automobilwerke Zwickau"
+    Name="Trabant"
+    YearOfManufacture="1973"
+    MaxKmH="125"
+    Ps="26"/>
+
+    
+    

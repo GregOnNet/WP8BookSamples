@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aktienkurse.Controls", "Aktienkurse.Controls\Aktienkurse.Controls.csproj", "{D05482B4-8C4D-415C-ACB8-0E1A77824D98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aktienkurs.Controls.Sample", "Aktienkurs.Controls.Sample\Aktienkurs.Controls.Sample.csproj", "{7A392B4B-8B11-44DA-A804-DF075C6CEE7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D05482B4-8C4D-415C-ACB8-0E1A77824D98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D05482B4-8C4D-415C-ACB8-0E1A77824D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D05482B4-8C4D-415C-ACB8-0E1A77824D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D05482B4-8C4D-415C-ACB8-0E1A77824D98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A392B4B-8B11-44DA-A804-DF075C6CEE7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A392B4B-8B11-44DA-A804-DF075C6CEE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A392B4B-8B11-44DA-A804-DF075C6CEE7E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7A392B4B-8B11-44DA-A804-DF075C6CEE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A392B4B-8B11-44DA-A804-DF075C6CEE7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A392B4B-8B11-44DA-A804-DF075C6CEE7E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

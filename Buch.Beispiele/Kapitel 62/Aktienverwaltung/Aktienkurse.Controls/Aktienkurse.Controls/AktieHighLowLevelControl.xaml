@@ -1,0 +1,55 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Aktienkurse_Controls_Core="clr-namespace:Aktienkurse.Controls.Core" 
+    xmlns:converter="clr-namespace:Aktienkurse.Controls.Converters"
+    x:Class="Aktienkurse.Controls.AktieHighLowLevelControl"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="149" d:DesignWidth="480">
+    <UserControl.Resources>
+        <converter:ValueToFontColor x:Key="FontColorConverter"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Margin="0">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="48"/>
+    		<ColumnDefinition/>
+    	</Grid.ColumnDefinitions>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="50"/>
+    		<RowDefinition Height="49"/>
+    		<RowDefinition Height="49"/>
+    	</Grid.RowDefinitions>
+    	<TextBlock 
+            Text="{Binding Path=Titel}"
+            x:Name="Titel_Text"
+            Style="{StaticResource PhoneTextNormalStyle}"
+            Grid.ColumnSpan="2"
+            Margin="0,8,8,8"
+            TextWrapping="Wrap"/>
+
+    	<Aktienkurse_Controls_Core:ThemeableImage x:Name="UpArrow" HorizontalAlignment="Center" Margin="-12,0,0,0" Grid.Row="1" Width="48" Source="/Images/appbar.up.rest.png" Height="48" d:LayoutOverrides="GridBox" VerticalAlignment="Center"/>
+    	<Aktienkurse_Controls_Core:ThemeableImage x:Name="DownArrow" HorizontalAlignment="Center" Margin="-12,0,0,0" Grid.Row="2" Width="48" Source="/Images/appbar.down.rest.png" Height="48" VerticalAlignment="Center"/>
+    	<TextBlock x:Name="Hoechststand_Text" 
+                   Grid.Column="1"
+                   HorizontalAlignment="Left" 
+                   Margin="0" Grid.Row="1" 
+                   TextWrapping="Wrap" 
+                   d:LayoutOverrides="Height" 
+                   VerticalAlignment="Center"/>
+    	<TextBlock 
+            x:Name="Niedrigststand_Text"
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            Margin="0"
+            Grid.Row="2" 
+            TextWrapping="Wrap" 
+            d:LayoutOverrides="Height"
+            VerticalAlignment="Center"/>
+
+    </Grid>
+</UserControl>

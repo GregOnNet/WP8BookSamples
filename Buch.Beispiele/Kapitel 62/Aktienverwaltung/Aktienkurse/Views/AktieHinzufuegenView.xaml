@@ -1,0 +1,83 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:prism="clr-namespace:Microsoft.Practices.Prism.Interactivity;assembly=Microsoft.Practices.Prism.Interactivity"
+    xmlns:vm="clr-namespace:Aktienkurse.ViewModels"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP71"
+    xmlns:Aktienkurse_Controls="clr-namespace:Aktienkurse.Controls;assembly=Aktienkurse.Controls"
+    x:Class="Aktienkurse.Views.AktieHinzufuegenView"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" 
+    xmlns:my="clr-namespace:Coding4Fun.Phone.Controls.Converters;assembly=Coding4Fun.Phone.Controls"
+    Style="{StaticResource AppPageTransitions}">
+    <phone:PhoneApplicationPage.Resources>
+        <my:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter1" />
+    </phone:PhoneApplicationPage.Resources>
+    <phone:PhoneApplicationPage.DataContext>
+        <vm:AktieViewModel/>
+    </phone:PhoneApplicationPage.DataContext>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar.save.rest.png" Text="speichern"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <i:Interaction.Behaviors>
+        <prism:ApplicationBarButtonCommand
+    		ButtonText="speichern"
+    		CommandBinding="{Binding SaveAktieCommand}"/>
+    </i:Interaction.Behaviors>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="{StaticResource AppName}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="hinzufügen" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <toolkit:PerformanceProgressBar
+            Grid.Row="1"
+            Visibility="{Binding Path=IsBusy, Converter={StaticResource BooleanToVisibilityConverter}}"            
+            IsIndeterminate="True"/>
+        
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <toolkit:PhoneTextBox x:Name="phoneTextBox" Margin="0" Text="{Binding Symbol, Mode=TwoWay}" d:LayoutOverrides="Width" VerticalAlignment="Top" ActionIcon="/Images/appbar.feature.search.rest.png" Height="70" HidesActionItemWhenEmpty="False" Hint="Symbol eingeben">
+            	<i:Interaction.Behaviors>
+            		<prism:UpdateTextBindingOnPropertyChanged/>
+            	</i:Interaction.Behaviors>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="ActionIconTapped">
+                        <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding GetAktieBySymbolCommand}" CommandParameter="{Binding Text, ElementName=phoneTextBox}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </toolkit:PhoneTextBox>
+            <Aktienkurse_Controls:AktieQuickInfoControl 
+                Margin="0" Grid.Row="1" VerticalAlignment="Top"
+                NominalWert="{Binding ÄnderungNominal}"
+                Prozent="{Binding ÄnderungProzentual}" Symbol="{Binding Symbol}" Titel="{Binding Name}" Visibility="{Binding Path=HasValidValue, Converter={StaticResource BooleanToVisibilityConverter1}}" />
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>

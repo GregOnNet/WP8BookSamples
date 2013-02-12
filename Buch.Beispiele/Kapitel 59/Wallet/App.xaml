@@ -1,0 +1,24 @@
+﻿<Application
+    x:Class="WalletExample.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--Anwendungsressourcen-->
+    <Application.Resources>
+        <local:LocalizedStrings xmlns:local="clr-namespace:WalletExample" x:Key="LocalizedStrings"/>
+        <sys:String x:Key="AppName">FAKE WEIN CLUB</sys:String>
+
+        <ImageBrush x:Key="AppBackground" ImageSource="/Assets/Background.jpg" Stretch="UniformToFill" Opacity="0.2"/>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Erforderliches Objekt, das Lebensdauerereignisse der Anwendung behandelt-->
+        <shell:PhoneApplicationService
+            Launching="Application_Launching" Closing="Application_Closing"
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

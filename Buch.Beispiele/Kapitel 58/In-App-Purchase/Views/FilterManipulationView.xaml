@@ -1,0 +1,65 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="InAppPurchase.Views.FilterManipulationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:vm="clr-namespace:InAppPurchase.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.DataContext>
+        <vm:FilterManipulation/>
+    </phone:PhoneApplicationPage.DataContext>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="{StaticResource AppName}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="Bildfilter" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" Source="{Binding EditImage}"/>
+
+            <HyperlinkButton Content="Weitere Filter kaufen" Grid.Row="1"
+                             NavigateUri="/Views/PurchaseFiltersView.xaml"
+                             Margin="{StaticResource PhoneTouchTargetLargeOverhang}"/>
+            <toolkit:ListPicker Grid.Row="2" ItemsSource="{Binding Filters}" DisplayMemberPath="Name" 
+                                SelectedItem="{Binding SelectedFilter, Mode=TwoWay}"/>
+
+            <Slider Grid.Row="3" Minimum="{Binding SelectedFilter.Mininum}" 
+                    Maximum="{Binding SelectedFilter.Maximum}" 
+                    Value="{Binding SelectedFilter.Value, Mode=TwoWay}" 
+                    Visibility="{Binding SelectedFilter.HasParameter}"
+                    ValueChanged="FilterParameter_ValueChanged"/>
+        </Grid>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsMenuEnabled="False">
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/ImageFilters.png" Text="Bild wählen" 
+                                            Click="SelectImage_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/Save.png" Text="Speichern"
+                                            Click="Save_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

@@ -1,0 +1,85 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Aktienkurse.ViewModels"
+    xmlns:Aktienkurse_Controls="clr-namespace:Aktienkurse.Controls;assembly=Aktienkurse.Controls" 
+    x:Class="Aktienkurse.Views.AktieDetailsView"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape"
+    Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    Style="{StaticResource AppPageTransitions}">
+    <phone:PhoneApplicationPage.DataContext>
+        <vm:AktieDetailsViewModel/>
+    </phone:PhoneApplicationPage.DataContext>
+    <!--LayoutRoot ist das Stammraster, in dem alle anderen Seiteninhalte platziert werden-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel enthält den Namen der Anwendung und den Seitentitel-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="{StaticResource AppName}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Details" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+        
+        <toolkit:PerformanceProgressBar
+            Grid.Row="1"
+            Visibility="{Binding Path=IsBusy, Converter={StaticResource BooleanToVisibilityConverter}}"            
+            IsIndeterminate="True"/>
+        
+        <!--ContentPanel - zusätzliche Inhalte hier platzieren-->
+        <ScrollViewer Margin="12,0" Grid.Row="2" BorderThickness="{StaticResource PhoneHorizontalMargin}">
+<!--ContentPanel - zusätzliche Inhalte hier platzieren-->
+        	<Grid x:Name="ContentPanel">
+        		<Grid.ColumnDefinitions>
+        			<ColumnDefinition Width="0.489*"/>
+        			<ColumnDefinition Width="0.511*"/>
+        		</Grid.ColumnDefinitions>
+        		<Grid.RowDefinitions>
+        			<RowDefinition Height="0.194*"/>
+        			<RowDefinition Height="Auto"/>
+        			<RowDefinition Height="0.806*"/>
+        		</Grid.RowDefinitions>
+        		<Aktienkurse_Controls:AktieQuickInfoControl Margin="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" 
+        			Titel="{Binding Name}" 
+        			Symbol="{Binding Symbol}" 
+        			NominalWert="{Binding ÄnderungNominal}"
+        			Prozent="{Binding ÄnderungProzentual}"/>
+        		<Aktienkurse_Controls:AktieHighLowLevelControl 
+        			HorizontalAlignment="Left" 
+        			Margin="0" Grid.Row="1" 
+        			Titel="heute"
+        			Hoechststand="{Binding Tageshoch}" 
+        			Niedrigststand="{Binding Tagestief}" VerticalAlignment="Top"/>
+        		<Aktienkurse_Controls:AktieHighLowLevelControl Grid.Column="1" HorizontalAlignment="Left" Margin="0" Grid.Row="1" d:LayoutOverrides="Height" Hoechststand="{Binding Jahreshoch}" Niedrigststand="{Binding Jahrestief}" Titel="Jahr" VerticalAlignment="Top"/>
+        		<TextBlock Text="{Binding Volumen, StringFormat=\{0:N0\}}" Margin="111,8,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="2" Style="{StaticResource PhoneTextSubtleStyle}"/>
+        		<TextBlock Margin="10,8,0,0" Grid.Row="2" TextWrapping="Wrap" Text="Volumen:" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource PhoneTextSubtleStyle}"/>
+        	</Grid>
+        </ScrollViewer>
+    </Grid>
+ 
+    <!--Beispielcode zur Verwendung von ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Schaltfläche 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Schaltfläche 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Menüelement 1"/>
+                <shell:ApplicationBarMenuItem Text="Menüelement 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>
