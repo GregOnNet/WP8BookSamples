@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="DataBinding.Controls.PictureListItemControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="72" d:DesignWidth="246">
+    
+    <Grid x:Name="LayoutRoot">
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="76"/>
+    		<ColumnDefinition Width="0.74*"/>
+    	</Grid.ColumnDefinitions>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.5*"/>
+    		<RowDefinition Height="0.5*"/>
+    	</Grid.RowDefinitions>
+    	<Image x:Name="img_DisplayImage" Margin="8" Height="60" VerticalAlignment="Center" Grid.RowSpan="2" HorizontalAlignment="Center" Width="60" Source="/DataBinding;component/img/no-pic.png"/>
+    	<TextBlock x:Name="txt_Description" HorizontalAlignment="Left" Margin="0,8,8,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Bottom" Grid.Column="1" Style="{StaticResource PhoneTextAccentStyle}"/>
+    	<TextBlock 
+            x:Name="txt_ImageInformation"
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            Margin="0,0,8,8" 
+            Grid.Row="1" 
+            TextWrapping="Wrap" 
+            Text="TextBlock"
+            Style="{StaticResource PhoneTextSmallStyle}" 
+            VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>
