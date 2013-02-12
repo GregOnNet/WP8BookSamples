@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.0">
+  <CommandSet xml:lang="de-DE">
+    <CommandPrefix>Tagplaner</CommandPrefix>
+    <Example>Welcher Tag ist heute?</Example>
+
+    <Command Name="DayToday">
+      <Example>Welcher Tag ist heute?</Example>
+      <ListenFor>Welcher Tag ist {day}</ListenFor>
+      <Feedback>Schlage Tag nach...</Feedback>
+      <Navigate Target="/VoiceCommands.xaml"/>
+    </Command>
+
+    <PhraseList Label="day">
+      <Item>heute</Item>
+      <Item>morgen</Item>
+      <Item>übermorgen</Item>
+    </PhraseList>
+
+  </CommandSet>
+</VoiceCommands>
+
+<!-- Beispiel -->
+<!--
+
+    Das vorgehende Beispiel zeigt ein hypothetisches Spiel mit dem Namen "Contoso ROD3O!'" in dem zwei Befehle
+    definiert werden, die der Benutzer aussprechen kann, um entweder ein neues Spiel zu beginnen oder um eine von drei Spielebenen erneut auszuführen.  
+    Um den Befehl "PlayGame" auszuführen, kann der Benutzer "Contoso Rodeo play a new game" oder "Contoso Rodeo
+    play new game" sagen. Beide Sätze starten das Spiel. Um den zweiten Befehl auszuführen, kann der Benutzer
+    "Contoso Rodeo replay level one", "Contoso Rodeo replay level two" oder "Contoso Rodeo replay level 
+    three" sagen.
+    Der zweite Befehl zeigt, wie eine PhraseList zusammen mit einem Befehl verwendet wird. Eine PhraseList kann 
+    dynamisch durch die Anwendung aktualisiert werden (was nützlich ist, wenn der Benutzer neue Spielebenen oder Funktionen aktiviert 
+    und ihm dafür neue Befehle zur Verfügung stehen sollen, auch wenn bereits Sprachbefehle registriert wurden).
+    Der dritte Befehl zeigt, wie mit der Sequenz {*} ein anderer Befehl verfügbar gemacht werden kann, der Sprache erkennt,
+    die nicht im CommandSet definiert ist.
+
+  Hinweis:
+
+      [und] gibt an, dass "und" optional ist. Verbindungswörter wie dieses als optional zu definieren,
+            kann nützlich sein, um beispielsweise "Contoso Rodeo, play new game" und "open Contoso Rodeo and play
+            a new game" dem Sprachverhalten anzupassen.
+                 
+      {number} wird "one" oder "two" oder "three" zugeordnet (wenn getrennt vom Befehl definiert).
+
+-->

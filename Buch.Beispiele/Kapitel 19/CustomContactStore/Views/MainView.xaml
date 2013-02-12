@@ -1,0 +1,147 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="CustomContactStore.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:CustomContactStore.ViewModels"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:galaSoftMvvmLightCommand="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP8"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+  <phone:PhoneApplicationPage.Resources>
+    <viewModels:StoredContactViewModel x:Key="NewContactViewModel"/>
+    <viewModels:StoredContactViewModelCollection x:Key="StoredContactsViewModel"/>
+  </phone:PhoneApplicationPage.Resources>
+  <!--LayoutRoot is the root grid where all page content is placed-->
+  <Grid x:Name="LayoutRoot" Background="Transparent">
+    <phone:Pivot Title="CUSTOM CONTACT STORE">
+      <!-- Flip Template -->
+      <phone:PivotItem 
+        Header="Hinzufügen"
+        DataContext="{Binding Source={StaticResource NewContactViewModel}}">
+        <Grid Margin="12,0,12,0">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="0.03*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.03*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.03*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.03*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.03*"/>
+            <RowDefinition Height="0.1*"/>
+          </Grid.RowDefinitions>
+
+          <TextBlock
+            Text="Vorname"
+            Style="{StaticResource PhoneTextSmallStyle}"/>
+          <TextBox
+            Name="FirstName"
+            Text="{Binding FirstName, Mode=TwoWay}"
+            Grid.Row="1"
+            VerticalAlignment="Top"/>
+
+          <TextBlock
+            Text="Nachname"
+            Grid.Row="2"
+            Style="{StaticResource PhoneTextSmallStyle}"/>
+          <TextBox
+            Name="FamilyName"
+            Text="{Binding FamilyName, Mode=TwoWay}"
+            Grid.Row="3"
+            VerticalAlignment="Top"/>
+
+          <TextBlock
+            Text="E-Mail"
+            Grid.Row="4"
+            Style="{StaticResource PhoneTextSmallStyle}"/>
+          <TextBox
+            Name="EMail"
+            Text="{Binding EMail, Mode=TwoWay}"
+            InputScope="EmailSmtpAddress"
+            Grid.Row="5"
+            VerticalAlignment="Top"/>
+
+          <TextBlock
+            Text="Spitzname"
+            Grid.Row="6"
+            Style="{StaticResource PhoneTextSmallStyle}"/>
+          <TextBox
+            Name="NickName"
+            Text="{Binding NickName, Mode=TwoWay}"
+            Grid.Row="7"
+            VerticalAlignment="Top"/>
+
+          <Button
+            Content="Neuen Kontakt hinzufügen"
+            Command="{Binding SaveCommand}"
+            VerticalAlignment="Center"
+            Grid.Row="9"/>
+        </Grid>
+      </phone:PivotItem>
+      <phone:PivotItem
+        Header="Kontakte"
+        DataContext="{Binding Source={StaticResource StoredContactsViewModel}}">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.15*"/>
+          </Grid.RowDefinitions>
+          <ListBox 
+            Name="ContactsList"
+            Margin="{StaticResource PhoneHorizontalMargin}"
+            ItemsSource="{Binding StoredContacts, Mode=TwoWay}">
+            <ListBox.Resources>
+              <Style TargetType="ListBoxItem">
+                <Setter
+                  Property="HorizontalContentAlignment"
+                  Value="Stretch"/>
+              </Style>
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+              <DataTemplate>
+                <StackPanel 
+                  Orientation="Vertical"
+                  Margin="0,0,0,10" 
+                  Background="{StaticResource PhoneAccentBrush}">
+                  <TextBlock Style="{StaticResource PhoneTextNormalStyle}"
+                             Text="{Binding FamilyName}"/>
+                  <TextBlock Style="{StaticResource PhoneTextSmallStyle}"
+                             Text="{Binding FirstName}"/>
+                </StackPanel>
+              </DataTemplate>
+            </ListBox.ItemTemplate>
+            <i:Interaction.Triggers>
+              <i:EventTrigger EventName="SelectionChanged">
+                <galaSoftMvvmLightCommand:EventToCommand 
+                                CommandParameter="{Binding SelectedItem,ElementName=ContactsList}"
+                                Command="{Binding NavigateToEditContactPageCommand}"/>
+              </i:EventTrigger>
+            </i:Interaction.Triggers>
+          </ListBox>
+          <Button
+            VerticalAlignment="Center"
+            Grid.Row="1"
+            Command="{Binding LoadContactsCommand}"
+            Content="Lade Kontakte"/>
+        </Grid>
+      </phone:PivotItem>
+    </phone:Pivot>
+
+    <!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+    <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+  </Grid>
+</phone:PhoneApplicationPage>

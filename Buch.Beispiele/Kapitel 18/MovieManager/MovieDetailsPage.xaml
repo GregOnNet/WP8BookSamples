@@ -1,0 +1,67 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="MovieManagerDemo.MovieDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <controls:Pivot Title="{StaticResource AppName}">
+        <controls:PivotItem Header="Details">
+            <Grid x:Name="ContentPanel">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Titel" Grid.Row="0" Style="{StaticResource PhoneTextSubtleStyle}" />
+                <TextBox Name="Title" Grid.Row="1"/>
+
+                <TextBlock Text="Untertitel" Grid.Row="2" Style="{StaticResource PhoneTextSubtleStyle}" />
+                <TextBox Name="SubTitle" Grid.Row="3"/>
+
+                <TextBlock Text="Genre" Grid.Row="4" Style="{StaticResource PhoneTextSubtleStyle}" />
+                <TextBox Name="Genre" Grid.Row="5" />
+
+                <TextBlock Text="Zusammenfassung" Grid.Row="6" Style="{StaticResource PhoneTextSubtleStyle}" />
+                <TextBox Name="Summary" Grid.Row="7" AcceptsReturn="True" TextWrapping="Wrap" />
+            </Grid>
+        </controls:PivotItem>
+        <controls:PivotItem Header="Bilder">
+            <ListBox Name="MovieImages">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding MovieImageSource}" Margin="0,12" Width="400" Height="400" Stretch="Uniform" HorizontalAlignment="Center"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </controls:PivotItem>
+    </controls:Pivot>
+ 
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.save.rest.png" Text="speichern" Click="SaveMovie_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.delete.rest.png" IsEnabled="True" Text="löschen" Click="DeleteMovie_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.add.rest.png" IsEnabled="True" Text="Bild erfassen" Click="AddPicture_Click" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
