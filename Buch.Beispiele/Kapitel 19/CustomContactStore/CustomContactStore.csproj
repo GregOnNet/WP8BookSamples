@@ -169,9 +169,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Cimbalino.Phone.Toolkit, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Cimbalino.Phone.Toolkit, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cimbalino.Phone.Toolkit.2.0.0\lib\wp8\Cimbalino.Phone.Toolkit.dll</HintPath>
+      <HintPath>..\..\packages\Cimbalino.Phone.Toolkit.2.0.1\lib\wp8\Cimbalino.Phone.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Cimbalino.Phone.Toolkit.Camera">
+      <HintPath>..\..\packages\Cimbalino.Phone.Toolkit.Camera.2.0.1\lib\wp8\Cimbalino.Phone.Toolkit.Camera.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight.Extras.WP8, Version=4.1.26.29756, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
