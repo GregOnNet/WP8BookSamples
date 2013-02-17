@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ExtrasInfo>
+    <!-- Search-related captions -->
+    <Consumer ConsumerID="{5B04B775-356B-4AA0-AAF8-6491FFEA5661}">
+
+        <!-- Computer products caption -->
+        <ExtensionInfo>
+            <Extensions>
+                <ExtensionName>Bing_Products_Computing</ExtensionName>
+                <ExtensionName>Bing_Products_Software</ExtensionName>
+            </Extensions>
+
+            <CaptionString>
+                <default>
+                    Preise für Computer-Artikel vergleichen
+                </default>
+                <en-US>
+                    Compare computer product prices
+                </en-US>
+            </CaptionString>
+        </ExtensionInfo>
+
+        <!-- Electronics products caption -->
+        <ExtensionInfo>
+            <Extensions>
+                <ExtensionName>Bing_Products_Video_Games</ExtensionName>
+                <ExtensionName>Bing_Products_Electronics</ExtensionName>
+            </Extensions>
+
+            <CaptionString>
+                <default>
+                    Preise für Elektronik-Artikel vergleichen
+                </default>
+                <en-US>
+                    Compare prices for electronics products
+                </en-US>
+            </CaptionString>
+        </ExtensionInfo>
+    </Consumer>
+</ExtrasInfo>
