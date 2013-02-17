@@ -172,7 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="WP8AsyncWebClient">
-      <HintPath>..\packages\WP8AsyncWebClient.1.0.1\lib\wp8\WP8AsyncWebClient.dll</HintPath>
+      <HintPath>..\..\packages\WP8AsyncWebClient.1.0.1\lib\wp8\WP8AsyncWebClient.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
