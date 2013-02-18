@@ -27,6 +27,7 @@
 *.lib
 *.sbr
 *.sdf
+*.opensdf
 *Publish.xml
 ipch/
 obj/
