@@ -6,7 +6,7 @@ namespace Aktienkurse.MsTests
   public class FizzBuzzTests
   {
     [TestMethod]
-    public void Processing_a_number_divisible_by_3_it_should_return_Fizz()
+    public void Processing_a_number_divisible_by_3_should_return_Fizz()
     {
       int input = 6;
       var fizzbuzz = new FizzBuzz();
@@ -14,6 +14,17 @@ namespace Aktienkurse.MsTests
       var result = FizzBuzz.Process(input);
 
       Assert.AreEqual("Fizz", result);
+    }
+    
+    [TestMethod]
+    public void Processing_a_number_divisible_by_5_should_return_Buzz()
+    {
+      int input = 6;
+      var fizzbuzz = new FizzBuzz();
+
+      var result = FizzBuzz.Process(input);
+
+      Assert.AreEqual("Buzz", result);
     }
   }
 
