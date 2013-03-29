@@ -45,7 +45,7 @@
 
           <toolkit:ToggleSwitch 
                 Name="ToggleFlipTile"
-                Header="ACTIVATE / DEACTICATE TILE"
+                Header="ACTIVATE / DEACTIVATE TILE"
                 Tap="OnTogglingFlipTile"
                 Grid.Row="3"/>
         </Grid>
@@ -79,7 +79,7 @@
 
           <toolkit:ToggleSwitch 
                 Name="ToggleIconicTile"
-                Header="ACTIVATE / DEACTICATE TILE"
+                Header="ACTIVATE / DEACTIVATE TILE"
                 Grid.Row="4"
                 Tap="OnTogglingIconicTile"/>
         </Grid>
@@ -115,7 +115,7 @@
           <toolkit:ToggleSwitch 
             Name = "ToggleCycleTile"    
             Grid.Row="3"
-            Header="ACTIVATE / DEACTICATE TILE"
+            Header="ACTIVATE / DEACTIVATE TILE"
             Tap="OnTogglingCycleTile"/>
         </Grid>
       </phone:PivotItem>
