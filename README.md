@@ -47,3 +47,30 @@ Dieses Repository enthält alle Beispiele, die in dem Buch "Grundlagen und Praxi
 ###Hubs
 - [Kapitel 36 - Den Musik+Video-Hub erweitern] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2036)
 - [Kapitel 37 - Bilder-Hub erweitern] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2037)
+- [Kapitel 38 - Lenses] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2038)
+- [Kapitel 39 - Search Extensibility] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2039)
+
+###Spieleentwicklung
+- [Kapitel 40 - DirectX-Spieleentwicklung für das Windows Phone] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2040)
+
+###App-Architektur mit MVVM]
+- [Kapitel 41 bis 45 - MVVM] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2041-45)
+
+###Performance
+- [Kapitel 46 bis 47 - Asynchrone Programmierung] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2046)
+
+###Gerätekommunikation
+- [Kapitel 52 - Sockets] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2052)
+- [Kapitel 53 - Bluetooth] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2053)
+- [Kapitel 54 - NFC] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2054)
+
+###Marketplace – App vertreiben
+- [Kapitel 58 - In-App-Purchase] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2058)
+- [Kapitel 59 - Wallet] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2059)
+- [Kapitel 60 - Advertising SDK ] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2060)
+
+###Eine App zum Nachmachen
+- [Kapitel 62 - App zur Aktienverwaltung] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2062)
+- [Kapitel 63 - Unit Testing] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2062)
+  - verweist auf das gleiche Beispiel wie [Kapitel 62] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2062)
+
