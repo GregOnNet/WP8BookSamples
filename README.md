@@ -57,7 +57,7 @@ Ausführliche Erläuterungen zu den aufgeführten Beispielen findet ihr im dazug
 ###Spieleentwicklung
 - [Kapitel 40 - DirectX-Spieleentwicklung für das Windows Phone] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2040)
 
-###App-Architektur mit MVVM]
+###App-Architektur mit MVVM
 - [Kapitel 41 bis 45 - MVVM] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2041-45)
 
 ###Performance
