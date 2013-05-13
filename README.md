@@ -3,7 +3,7 @@
 Dieses Repository enthält alle Beispiele, die in dem Buch "Grundlagen und Praxis der App-Entwicklung" erläutert werden.
 
 ##Das Buch zum Repo ;)
-Ausführliche Erläuterungen zu den aufgeführten Beispiel findet ihr im dazugehörigen Buch, erschienen beim [dpunkt.Verlag](http://dpunkt.de/).
+Ausführliche Erläuterungen zu den aufgeführten Beispielen findet ihr im dazugehörigen Buch, erschienen beim [dpunkt.Verlag](http://dpunkt.de/).
 - [Windows Phone 8 - Grundlagen und Praxis der App-Entwicklung] (http://dpunkt.de/buecher/4255/windows-phone-8.html)
 
 ##Beispiele
@@ -57,7 +57,7 @@ Ausführliche Erläuterungen zu den aufgeführten Beispiel findet ihr im dazugeh
 ###Spieleentwicklung
 - [Kapitel 40 - DirectX-Spieleentwicklung für das Windows Phone] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2040)
 
-###App-Architektur mit MVVM]
+###App-Architektur mit MVVM
 - [Kapitel 41 bis 45 - MVVM] (https://github.com/GregOnNet/WP8BookSamples/tree/master/Buch.Beispiele/Kapitel%2041-45)
 
 ###Performance
